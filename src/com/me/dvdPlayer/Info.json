@@ -1,0 +1,14 @@
+{
+  "RGB": true,
+  "Colour": "blue",
+  "Undecorated": false,
+  "windowWidth": 1300,
+  "windowHeight": 800,
+  "fullscreen": false,
+  "x": 1920,
+  "y": 1080,
+  "rescaleSizeWidth": 100,
+  "rescaleSizeHeight": 100,
+  "speed": 0.6,
+  "threads": 4
+}

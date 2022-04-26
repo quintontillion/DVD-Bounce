@@ -15,10 +15,10 @@ public class PanelUpdater extends JPanel {
         return Img;
     }
     Random rand = new Random();
-    //int CharacterX= rand.nextInt(200)+400;
-    //int CharacterY=rand.nextInt(200)+200;
-    int CharacterX= 750;
-    int CharacterY=400;
+    int CharacterX= rand.nextInt(200)+400;
+    int CharacterY=rand.nextInt(200)+200;
+    //int CharacterX= 750;
+   //int CharacterY=400;
     public getInfo info;
     public PanelUpdater getPanel() {
         return this;
@@ -73,9 +73,17 @@ public class PanelUpdater extends JPanel {
                 System.out.println("hit bottom right!");
             }
             if (this.getWidth()-CharacterX-info.getRescaleSizeWidth()==0) {
+                System.out.println(topLeft);
+                System.out.println(topRight);
+                System.out.println(bottomLeft);
+                System.out.println(bottomRight);
                 if (topRight) {
                     bottomRight=true;
                     topRight=false;
+                }
+                if (topLeft) {
+                    bottomLeft=true;
+                    topLeft=false;
                 }
             }
             if (this.getHeight()-CharacterY-info.getRescaleSizeHeight()==0) {
@@ -83,17 +91,30 @@ public class PanelUpdater extends JPanel {
                     topRight=true;
                     topLeft=false;
                 }
+                if (bottomLeft) {
+                    bottomRight=true;
+                    bottomLeft=false;
+                }
             }
             if (CharacterY==0) {
                 if (bottomRight) {
                     bottomLeft=true;
                     bottomRight=false;
                 }
+                if (topRight) {
+                    topLeft=true;
+                    topRight=false;
+                }
+
             }
             if (CharacterX==0) {
                 if (bottomLeft) {
                     topLeft=true;
                     bottomLeft=false;
+                }
+                if (bottomRight) {
+                    topRight=true;
+                    bottomRight=false;
                 }
             }
             g.drawImage(Resize(img, info.getRescaleSizeHeight(),info.getRescaleSizeWidth(),info.speed),CharacterX,CharacterY,null);
